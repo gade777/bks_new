@@ -1,0 +1,77 @@
+/* App.css */
+.parent-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  font-family: "Courier New", Courier, monospace; /* Vintage font */
+  background-image: linear-gradient(to right, #8b4513, #a0522d);
+}
+
+.child-container {
+  text-align: center;
+  margin: 20px;
+  /* background-color: antiquewhite; */
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.child-image {
+  max-width: 100%; /* Ensures the image does not exceed the width of its container */
+  height: auto; /* Maintains the aspect ratio */
+  object-fit: cover; /* Covers the container without stretching the image */
+  transition: transform 0.5s ease; /* Smooth transition for the animation */
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive styles for images */
+@media screen and (max-width: 320px) {
+  .child-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 768px) {
+  .child-image {
+    width: 80%;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .child-image {
+    width: 60%;
+    height: auto;
+  }
+}
+
+.child-button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.child-button:hover {
+  background-color: #555;
+  transform: scale(1.1); /* Makes the button slightly larger on hover */
+}

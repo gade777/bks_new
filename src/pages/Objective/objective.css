@@ -1,0 +1,48 @@
+.objective_container {
+  display: flex;
+  flex-direction: row;
+ }
+ 
+ .objective_left,
+ .objective_right {
+  width: 50%;
+  margin: 10px;
+ }
+ 
+ .objective_right {
+  background-color: #f4f1de;
+  padding: 20px;
+ }
+ 
+ .objective_right h1 {
+  text-align: center;
+  color: #2a9d8f;
+ }
+ 
+ .objective_img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+ }
+ 
+/* Mobile devices */
+@media only screen and (max-width: 599px) {
+  .objective_container {
+     flex-direction: column; /* Stack items vertically on mobile */
+  }
+  .objective_left,
+  .objective_right {
+     width: 100%; /* Take full width on mobile */
+  }
+ }
+/* Tablets and larger screens */
+@media only screen and (min-width: 600px) {
+  .objective_left {
+     display: block;
+     width: 50%; /* Adjust width for larger screens */
+  }
+  .objective_right {
+     width: 50%; /* Adjust width for larger screens */
+  }
+ }
+ 

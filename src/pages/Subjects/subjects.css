@@ -1,0 +1,59 @@
+.image-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    /* background-color: red; */
+    margin: 8vh;
+  }
+  
+  .image-wrapper {
+    position: relative;
+  }
+
+  .image-box {
+    width: 210px; 
+    height: 150px; 
+    object-fit: cover; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+  }
+  
+  .image-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .button-container {
+    text-align: center;
+    margin-top: 20px;
+    margin: 5vh;
+  }
+  
+  .know-more-button {
+    background-color: #eb5d1e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .image-box {
+      width: 100%; /* Adjust image width for smaller screens */
+    }
+  
+    .button-container {
+      padding: 0 20px; /* Add padding for smaller screens */
+    }
+  }
+  

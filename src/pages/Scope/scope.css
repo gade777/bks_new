@@ -1,0 +1,63 @@
+
+.rectangle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #ffd700, #8b4513);
+  }
+  
+  .box {
+    width: calc(25% - 20px); /* Adjust as needed for spacing */
+    margin: 10px; /* Add margin to create space between boxes */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content vertically */
+    height: 300px; /* Set desired height for the boxes */
+    transition: transform 0.3s ease; 
+    justify-content: space-evenly;
+  }
+  
+  .box h1 {
+    font-size: 24px; /* Adjust font size as needed */
+    text-align: center; /* Center text horizontally */
+  }
+  
+  .box p {
+    margin-top: 10px;
+    text-align: center; /* Center text horizontally */
+  }
+  
+  .box:hover {
+    transform: translateY(-5px); /* Move box up slightly on hover */
+  }
+  
+  .scope_p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 2rem;
+  }
+  .scope_h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .box {
+      width: calc(50% - 20px); /* Adjust box width for two columns on smaller screens */
+    }
+    
+    .scope_p {
+      font-size: 1rem; /* Adjust font size for smaller screens */
+      margin: 1rem; /* Adjust margin for smaller screens */
+    }
+    
+    .scope_h1 {
+      font-size: 1.5rem; /* Adjust font size for smaller screens */
+    }
+  }
+  

@@ -1,0 +1,111 @@
+/* Base styles */
+.contact_container {
+    display: flex;
+    margin: auto; /* Center the container */
+    width: 90%; /* Adjust the width as needed */
+}
+
+.contact_left, .contact_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%; /* Ensure they take up the full width of the container */
+}
+
+.name-email-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.name-email-container > div {
+    width: 45%; /* Adjust the width as needed */
+}
+
+input, textarea {
+    width: 100%;
+    box-sizing: border-box;
+    height: 7vh;
+}
+
+.button {
+    width: 100%;
+    height: 7vh;
+    margin: 0 auto; /* Center the button */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) { /* Small devices (portrait tablets and large phones, 600px and up) */
+    .contact_container {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1vh;
+    }
+
+    .contact_left, .contact_right {
+        width: 100%;
+    }
+
+    .name-email-container {
+        flex-direction: column;
+        width: 90%; /* Adjust the width as needed */
+    }
+
+    .name-email-container > div {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* Ensure the button is centered on mobile */
+    .button {
+        margin-bottom: 1vh;
+        width: 80%; 
+        box-sizing: border-box;
+        margin: 0 auto; /* Center the button */
+    }
+    
+    input, textarea {
+        width: 90%;
+        box-sizing: border-box;
+      margin: 13px 0 10px 0;
+      height: 4vh;
+    }
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) { /* Medium devices (landscape tablets, 768px and up) */
+    .contact_container {
+        flex-direction: row;
+    }
+
+    .contact_left, .contact_right {
+        width: 50%;
+    }
+
+    .name-email-container {
+        flex-direction: row;
+    }
+
+    .name-email-container > div {
+        width: 45%;
+    }
+}
+
+@media (min-width: 1025px) { /* Large devices (desktops, 1024px and up) */
+    .contact_container {
+        flex-direction: row;
+    }
+
+    .contact_left, .contact_right {
+        width: 50%;
+    }
+
+    .name-email-container {
+        flex-direction: row;
+    }
+
+    .name-email-container > div {
+        width: 45%;
+    }
+}
