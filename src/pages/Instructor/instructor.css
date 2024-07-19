@@ -1,0 +1,65 @@
+/* Add this style to the parent container of .instructor-profile */
+.parent-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 80px; /* Add padding to push the content down from the top */
+    background: linear-gradient(135deg, #ffd700, #8b4513); /* Gradient background */
+  }
+  
+  .instructor-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(245, 245, 245, 0.9); /* Set a semi-transparent background color */
+    max-width: 800px; /* Reduce the width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visual appearance */
+  }
+  
+  .profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .profile-text {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .profile-image {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profile-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  @media (max-width: 768px) {
+    .profile-container {
+      flex-direction: column;
+    }
+  
+    .profile-image,
+    .profile-text {
+      width: 100%;
+      padding: 10px;
+    }
+  }
+  
