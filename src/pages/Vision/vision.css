@@ -1,35 +1,40 @@
 .vision_container {
-    display: flex;
-    background-color: black;
-    padding: 10px 30px;
+  display: flex;
+  background-color: black;
+  padding: 10px 30px;
+}
+
+.vision_left {
+  width: 50%;
+}
+
+.vision_right {
+  width: 50%;
+  color: whitesmoke;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.vision_section {
+  opacity: 0; /* Initial state for animation */
+  transform: translateY(50px); /* Initial state for animation */
+  will-change: opacity, transform;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .vision_container {
+    flex-direction: column; /* Change to a vertical layout on mobile */
+    padding: 10px; /* Adjust padding for better spacing on mobile */
+    align-items: center;
   }
-  
-  .vision_left {
-    width: 50%;
-  }
-  
+
+  .vision_left,
   .vision_right {
-    width: 50%;
-    color: whitesmoke;
-    display: flex;
+    width: 100%; /* Make both sides take full width on mobile */
+    text-align: center; /* Center text on mobile */
+    margin: 10px;
     justify-content: space-evenly;
-    flex-direction: column;
   }
-  
-  /* Media queries for responsiveness */
-  @media (max-width: 768px) {
-    .vision_container {
-      flex-direction: column; /* Change to a vertical layout on mobile */
-      padding: 10px; /* Adjust padding for better spacing on mobile */
-      align-items: center;
-    }
-  
-    .vision_left,
-    .vision_right {
-      width: 100%; /* Make both sides take full width on mobile */
-      text-align: center; /* Center text on mobile */
-      margin: 10px;  
-      justify-content: space-evenly;
-    }
-  }
-  
+}

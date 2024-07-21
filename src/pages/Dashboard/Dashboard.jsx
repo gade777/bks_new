@@ -2,8 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 // import Typical from "react-typical";
 import "../Dashboard/Dashboard.css";
-import image1 from "../../assets/dashboard-bg1.jpeg";
-import image2 from "../../assets/dashboard-bg2.jpeg";
+import image1 from "../../assets/dashboard_1.png";
+import image2 from "../../assets/dashboard_2.png";
+import image3 from "../../assets/dashboard-bg1.jpeg"
+import image4 from "../../assets/dashboard-bg3.jpeg"
 import About from "../AboutUs/About";
 import Vision from "../Vision/Vision";
 import Scope from "../Scope/Scope";
@@ -15,7 +17,7 @@ import Footer from "../footer/Footer";
 // import Profile from "../Instructor/Profile";
 
 const Dashboard = () => {
-  const images = [image1, image2];
+  const images = [image1, image2, image3, image4];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const heroSectionRef = useRef(null);
 

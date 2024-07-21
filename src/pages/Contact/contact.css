@@ -16,6 +16,12 @@
     margin-bottom: 30px;
 }
 
+.form-status {
+    margin-top: 10px;
+    font-size: 16px;
+    color: green; /* Or red, based on success or error */
+}
+
 .contact_container {
     display: flex;
     flex-wrap: wrap;
@@ -36,12 +42,13 @@
 
 .contact_left h3 {
     color: #eb5d1e;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust spacing between icon and text */
 }
 
-.contact_right {
-    flex: 1;
-    padding: 20px;
-    background-color: #fff;
+.contact_left p {
+    margin: 10px 0;
 }
 
 .contact_img {
@@ -49,6 +56,12 @@
     width: 100%;
     border-radius: 8px;
     margin-top: 20px;
+}
+
+.contact_right {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
 }
 
 .name-email-container {

@@ -41,6 +41,12 @@
 
 .about_right li {
   text-align: justify;
+  display: flex;
+  align-items: center;
+}
+
+.about_right li .icon {
+  margin-right: 10px;
 }
 
 .about_right h1,
@@ -67,6 +73,52 @@
   color: white;
 }
 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-body ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-body li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.modal-body li .icon {
+  margin-right: 10px;
+}
+
 @media (max-width: 768px) {
   .about_left,
   .about_right {
@@ -82,5 +134,21 @@
   .about_left img {
     width: 100%;
     height: auto;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .modal-close {
+    font-size: 20px;
+    top: 5px;
+    right: 5px;
+  }
+
+  .modal-body li .icon {
+    width: 20px;
+    height: 20px;
   }
 }

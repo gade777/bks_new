@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./profile.css";
+import "./instructor.css";
 // import mam from "../../assets/megha.jpg";
 import { gsap } from "gsap";
 

@@ -1,14 +1,16 @@
+/* Base styles */
 .dashboard_container {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow-y: auto hidden;
+  width: 100%;
+  /* overflow-y: auto; */
 }
 
 .dashboard_content {
   flex: 1;
   position: relative;
-  overflow-y: auto hidden;
+  /* overflow-y: auto; */
 }
 
 .hero_section {
@@ -52,9 +54,37 @@
   text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
 }
 
+/* Tablet and smaller devices */
+@media (max-width: 1024px) {
+  .hero_section {
+    height: 70vh;
+  }
+
+  .hero_content {
+    right: 5%;
+  }
+
+  .large_text1 {
+    font-size: 2rem;
+  }
+
+  .large_text {
+    font-size: 2rem;
+  }
+
+  .small_text {
+    font-size: 1.25rem;
+  }
+}
+
+/* Mobile devices */
 @media (max-width: 768px) {
   .hero_section {
-    height: 40vh;
+    height: 50vh;
+  }
+
+  .hero_content {
+    right: 2%;
   }
 
   .large_text1 {
@@ -67,5 +97,28 @@
 
   .small_text {
     font-size: 1rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .hero_section {
+    height: 40vh;
+  }
+
+  .hero_content {
+    right: 1%;
+  }
+
+  .large_text1 {
+    font-size: 1.25rem;
+  }
+
+  .large_text {
+    font-size: 1.25rem;
+  }
+
+  .small_text {
+    font-size: 0.875rem;
   }
 }

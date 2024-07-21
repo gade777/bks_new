@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import './Navbar.css'; // Assuming your CSS file is named Navbar.css
-// import bks1 from "../../assets/bkstm.jpeg";
+import './Navbar.css';
 
 function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -50,8 +49,11 @@ function Navbar() {
             <Link to="/workshop-global" onClick={closeDropdown}>Global</Link>
           </div>
         </div>
-        <Link to="/Profile" onClick={closeDropdown}>Coach Profile</Link>
-        <Link to="/login" onClick={closeDropdown}>Login/Register</Link>
+        <Link to="/Instructor" onClick={closeDropdown}>Coach Profile</Link>
+        <div className="auth-buttons">
+          <Link to="/login" className="auth-button" onClick={closeDropdown}>Login</Link>
+          <Link to="/register" className="auth-button" onClick={closeDropdown}>Register</Link>
+        </div>
         <Link to="/cart" className="cart-link" onClick={closeDropdown}>Cart</Link>
       </div>
       <div className="menu-icon" onClick={toggleMenu}>

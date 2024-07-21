@@ -8,6 +8,10 @@ import Contact from "./pages/Contact/Contact";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import "./App.css";
 import Instructor from "./pages/Instructor/Instructor";
+import Research from "./pages/Reasarch/Reasarch";
+import Cart from "./pages/Cart/Cart";
+import Register from "./pages/Register/Register";
+import Login from "./pages/Login/Login"
 
 function App() {
   return (
@@ -22,6 +26,10 @@ function App() {
             <Route path="/subjects" element={<Subjects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/Instructor" element={<Instructor />} />
+            <Route path="/research" element={<Research/>} />
+            <Route path="/cart" element={<Cart/>}/>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/register" element={<Register/>}/>
           </Routes>
         </div>
       </div>
