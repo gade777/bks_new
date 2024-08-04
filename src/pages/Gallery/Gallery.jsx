@@ -5,24 +5,40 @@ import "slick-carousel/slick/slick-theme.css";
 import "./Gallery.css";
 
 // Importing images
-import image1 from "../../assets/bks.png";
-import image2 from "../../assets/logo.png";
-import image3 from "../../assets/contact.jpg";
-import image4 from "../../assets/contact.jpg";
-import image5 from "../../assets/bks.png";
-import image6 from "../../assets/dashboard-bg1.jpeg";
-import image7 from "../../assets/dashboard-bg2.jpeg";
-import image8 from "../../assets/dashboard-bg3.jpeg";
+import image1 from "../../assets/img_1.jpeg";
+import image2 from "../../assets/img_2.jpeg";
+import image3 from "../../assets/img_3.jpeg";
+import image4 from "../../assets/img_4.jpeg";
+import image5 from "../../assets/img_5.jpeg";
+import image6 from "../../assets/img_6.jpeg";
+import image7 from "../../assets/img_7.jpeg";
+import image8 from "../../assets/img_8.jpeg";
+import image15 from "../../assets/img_9.jpeg";
+import image9 from "../../assets/img_10.jpeg";
+import image10 from "../../assets/img_11.jpeg";
+import image11 from "../../assets/img_12.jpeg";
+import image12 from "../../assets/img_13.jpeg";
+import image13 from "../../assets/img_14.png";
+import image14 from "../../assets/img_15.png";
+
 
 const images = [
-  { src: image1, description: "Description for image 1" },
-  { src: image2, description: "Description for image 2" },
-  { src: image3, description: "Description for image 3" },
-  { src: image4, description: "Description for image 4" },
-  { src: image5, description: "Description for image 5" },
-  { src: image6, description: "Description for image 6" },
-  { src: image7, description: "Description for image 7" },
-  { src: image8, description: "Description for image 8" },
+  { src: image1, description: "" },
+  { src: image2, description: "Vice President- MGM Alumini Association 2" },
+  { src: image3, description: "Lead the NGO for Woman and Kids Empowerment in Cultural Attributes 2" },
+  { src: image4, description: "Lead the NGO for Woman and Kids Empowerment in Cultural Attributes 6" },
+  { src: image5, description: "" },
+  { src: image6, description: "Invited in Dainik Bhaskar Social Meeting" },
+  { src: image7, description: "Lead the NGO for Woman and Kids Empowerment in Cultural Attributes 6" },
+  { src: image8, description: "Lead the NGO for Woman and Kids Empowerment in Cultural Attributes 3" },
+  { src: image9, description: "Vice President- MGM Alumini Association 1" },
+  { src: image10, description: "Participated in Women Economic Forum (ALL - Ladies League Kerala Chapter) at IIM Kozhikode" },
+  { src: image11, description: "Vice President- MGM Alumini Association 2" },
+  { src: image12, description: "Participated in Women Economic Forum (ALL - Ladies League Kerala Chapter) at IIM Kozhikode" },
+  { src: image13, description: "Lead the NGO for Woman and Kids Empowerment in Cultural Attributes 1" },
+  { src: image14, description: "" },
+  { src: image15, description: "" },
+
 ];
 
 const Gallery = () => {

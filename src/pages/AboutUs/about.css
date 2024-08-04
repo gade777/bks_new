@@ -2,20 +2,21 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  background-color: #ffd700;
+  background-color: #fef8f5;
+  font-family: "Open Sans", sans-serif;
   padding: 20px;
+  font-size: 18px;
 }
 
 .about_left {
   flex: 1;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 5px;
   transition: transform 0.3s ease-in-out;
 }
 
 .about_left img {
   width: 90%;
-  height: auto; /* Maintain aspect ratio */
+  height: auto;
   display: block;
   transition: transform 0.3s ease-in-out;
 }
@@ -27,16 +28,17 @@
 .about_right {
   flex: 1;
   padding: 20px;
-  background-color: #ffd700; /* Adjust as per your preference */
-  opacity: 0; /* Initial state for animation */
-  transform: translateY(50px); /* Initial state for animation */
+  opacity: 0;
+  transform: translateY(50px);
   will-change: opacity, transform;
+  color: #4e4039;
 }
 
 .about_right ul {
   max-width: 90%;
   margin-left: auto;
   margin-right: auto;
+  padding: 10px;
 }
 
 .about_right li {
@@ -46,7 +48,10 @@
 }
 
 .about_right li .icon {
+  width: 24px;
+  height: 24px;
   margin-right: 10px;
+  color: #1e90ff; /* Add color to match the screenshot */
 }
 
 .about_right h1,
@@ -66,6 +71,7 @@
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
+  font-size: 25px;
 }
 
 .about_button:hover {
@@ -102,6 +108,7 @@
   border: none;
   font-size: 24px;
   cursor: pointer;
+  color: red; /* Set the color of the close icon to red */
 }
 
 .modal-body ul {
@@ -116,7 +123,10 @@
 }
 
 .modal-body li .icon {
+  width: 24px;
+  height: 24px;
   margin-right: 10px;
+  color: #1e90ff; /* Add color to match the screenshot */
 }
 
 @media (max-width: 768px) {
@@ -148,7 +158,7 @@
   }
 
   .modal-body li .icon {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
   }
 }

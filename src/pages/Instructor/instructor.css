@@ -5,7 +5,8 @@
     align-items: center;
     min-height: 100vh;
     padding-top: 80px; /* Add padding to push the content down from the top */
-    background: linear-gradient(135deg, #ffd700, #8b4513); /* Gradient background */
+    /* background: linear-gradient(135deg, #ffd700, #8b4513); Gradient background */
+    background-image: url("../../assets/pale-brown.jpg");
   }
   
   .instructor-profile {

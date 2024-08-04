@@ -1,11 +1,13 @@
+/* Gallery.css */
 .gallery_container {
-  width: 90%;
+  width: 100%;
   margin: auto;
-  background: linear-gradient(to right, #8e0e00, #1f1c18);
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
   padding: 20px;
+  height: auto; /* Adjusted to auto to fit content */
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  max-height: 80vh; /* Adjust height to a percentage of the viewport height */
+  max-height: 70vh; /* Adjust height to a percentage of the viewport height */
   overflow: hidden; /* Ensure content fits within the container */
 }
 
@@ -14,63 +16,53 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* padding: 10px; */
 }
 
 .slide_image {
-  width: 100%; /* Make the image width responsive */
-  height: auto; /* Maintain the aspect ratio */
-  max-width: 300px; /* Set a maximum width */
-  max-height: 200px; /* Set a maximum height */
-  object-fit: cover; /* Ensure the image maintains its aspect ratio and covers the area */
-  border-radius: 10px;
+  width: 100%; /* Make image responsive */
+  max-width: 100%; /* Ensure the image does not exceed container width */
+  height: 250px; /* Maintain aspect ratio */
+  border-radius: 5px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
+  object-fit: fill; /* Adjusted to cover for better fit */
 }
 
 .image_description {
-  color: #fff;
-  font-size: 1em; /* Use relative units for font size */
+  color: black;
+  font-size: 0.75rem; /* Adjusted for small screens */
   text-align: center;
-  max-width: 90%;
-  margin: 0 auto;
-}
-
-.slick-dots li button:before {
-  color: #fff;
-}
-
-.slick-prev:before,
-.slick-next:before {  
-  color: #fff;
+  max-width: 100%; /* Full width on small screens */
+  margin: 10px auto; /* Adjusted margin for better spacing */
+  padding: 5px 10px;
+  border-radius: 3px;
 }
 
 /* Media queries for responsive design */
 @media (min-width: 600px) {
   .gallery_container {
-    max-height: 70vh; /* Adjust height for larger screens */
+    max-height: 90vh; /* Adjust height for larger screens */
   }
 
   .slide_image {
-    max-width: 400px; /* Increase the maximum width for larger screens */
-    max-height: 300px; /* Increase the maximum height for larger screens */
+    max-width: 100%; /* Ensure responsiveness */
   }
 
   .image_description {
-    font-size: 1.2em; /* Increase font size for larger screens */
+    font-size: 1rem; /* Increase font size for larger screens */
   }
 }
 
 @media (min-width: 900px) {
   .gallery_container {
-    max-height: 60vh; /* Adjust height for even larger screens */
+    max-height: 70vh; /* Adjust height for even larger screens */
   }
 
   .slide_image {
-    max-width: 500px; /* Increase the maximum width for even larger screens */
-    max-height: 400px; /* Increase the maximum height for even larger screens */
+    max-width: 100%; /* Ensure responsiveness */
   }
 
   .image_description {
-    font-size: 1.4em; /* Increase font size for even larger screens */
+    font-size: 1.2rem; /* Increase font size for even larger screens */
   }
 }

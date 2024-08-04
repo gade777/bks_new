@@ -1,177 +1,136 @@
 /* Navbar.css */
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 20px;
+  padding: 10px 20px;
+  background-color: #fff; /* Navbar background color */
+  color: #333; /* Text color */
   position: fixed;
-  width: 100%;
   top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  backdrop-filter: saturate(180%) blur(10px);
-  background-color: #fff; /* Add background color to improve readability */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Animation for background color and shadow */
 }
 
-.navbar:hover {
-  background-color: #f4f4f4; /* Lighter background on hover */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
-}
-
-.logo {
-  flex: 1;
+.navbar-logo {
   display: flex;
   align-items: center;
 }
 
-.logo img {
-  height: 36px;
-  transition: transform 0.3s ease; /* Animation for logo */
+.navbar-logo img {
+  height: 50px; /* Set height for the logo */
+  width: auto; /* Maintain aspect ratio */
 }
 
-.logo img:hover {
-  transform: scale(1.1); /* Zoom effect on hover */
-}
-
-.links {
+.navbar-menu {
   display: flex;
-  gap: 15px;
-  flex: 2;
-  justify-content: center;
-  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.links a,
-.dropdown span {
-  color: black;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  position: relative; /* For dropdown arrow */
-  transition: color 0.3s ease; /* Animation for color */
-}
-
-.links a:hover,
-.dropdown span:hover {
-  color: #4CAF50; /* Change color on hover */
-}
-
-.dropdown {
+.navbar-menu li {
   position: relative;
 }
 
-.dropdown-content {
+.navbar-menu a {
+  color: #333; /* Link color */
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-menu a:hover {
+  background-color: #f0f0f0; /* Hover background color */
+  color: #007bff; /* Hover text color */
+}
+
+.dropdown-menu {
   display: none;
   position: absolute;
-  background-color: #fff;
-  color: #333;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  transition: opacity 0.3s ease; /* Animation for dropdown */
-  opacity: 0;
+  top: 100%; /* Position the dropdown below the parent item */
+  left: 0;
+  background-color: #fff; /* Dropdown background color */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1001; /* Ensure dropdown is above other content */
 }
 
-.dropdown-content a {
-  color: #333;
-  padding: 12px 16px;
-  text-decoration: none;
+.dropdown-menu.show {
   display: block;
 }
 
-.dropdown-content a:hover {
-  background-color: #ddd;
+.dropdown-menu li {
+  padding: 10px;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown-menu a {
+  color: #333; /* Dropdown link color */
+  padding: 10px 15px;
   display: block;
-  opacity: 1;
 }
 
-.auth-buttons {
+.navbar-buttons {
   display: flex;
-  gap: 10px;
-  flex: 1;
-  justify-content: flex-end;
 }
 
-.auth-button {
-  padding: 8px 12px;
-  background-color: #4CAF50;
-  color: white;
-  border-radius: 5px;
+.btn {
+  color: #fff;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Animation for button */
-}
-
-.auth-button:hover {
-  background-color: #45a049;
-  transform: scale(1.05); /* Zoom effect on hover */
-}
-
-.menu-icon {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  cursor: pointer;
-}
-
-.menu-icon-bar {
-  width: 30px;
-  height: 3px;
-  background-color: #333;
+  padding: 10px 15px;
+  background-color: #007bff; /* Button background color */
+  margin-left: 10px;
   border-radius: 5px;
-  transition: background-color 0.3s ease; /* Animation for menu icon */
+  transition: background-color 0.3s, transform 0.3s;
 }
 
-.menu-icon.open .menu-icon-bar {
-  background-color: #4CAF50; /* Change color on open */
+.btn:hover {
+  background-color: #0056b3; /* Button hover background color */
+  transform: scale(1.05);
 }
 
-/* Responsive styles */
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #333; /* Toggle button color */
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.navbar-toggle-icon::before {
+  content: '☰';
+}
+
 @media (max-width: 768px) {
-  .navbar {
-    padding: 10px;
-  }
-
-  .logo {
-    flex: 1;
-  }
-
-  .logo img {
-    height: 32px;
-  }
-
-  .links {
+  .navbar-menu {
     display: none;
     flex-direction: column;
-    gap: 10px;
+    width: 100%;
+    background-color: #fff; /* Mobile menu background color */
     position: absolute;
-    top: 60px;
-    right: 0;
-    background-color: #fff;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    z-index: 999;
+    top: 60px; /* Adjust based on navbar height */
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
-  .links.open {
+  .navbar-menu.active {
     display: flex;
   }
 
-  .links a,
-  .dropdown-content a {
-    padding: 10px 20px;
-    width: 100%;
-    box-sizing: border-box;
+  .navbar-buttons {
+    display: none;
   }
 
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-  }
-
-  .menu-icon {
-    display: flex;
+  .navbar-toggle {
+    display: block;
   }
 }

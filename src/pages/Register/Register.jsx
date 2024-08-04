@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -12,8 +13,9 @@ const Register = () => {
   const [terms, setTerms] = useState(false);
   const navigate = useNavigate();
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
+
     if (!name || !email || !address || !password || !terms) {
       toast.error("All fields are required");
       return;
@@ -26,9 +28,41 @@ const Register = () => {
       toast.error("Password must be at least 6 characters");
       return;
     }
-    // Perform registration logic here
-    toast.success("Registration Successful");
-    navigate("/login");
+
+    const userData = {
+      name,
+      email,
+      address,
+      password
+    };
+
+    try {
+      const response = await fetch('https://us-central1-vedik-78b04.cloudfunctions.net/registerUser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        if (errorData.error === 'Email already in use') {
+          toast.error("Email already in use");
+        } else {
+          toast.error(errorData.error || 'An error occurred');
+        }
+        return;
+      }
+
+      const result = await response.json();
+
+      toast.success(result.message || 'Registration Successful');
+      navigate("/login");
+    } catch (error) {
+      toast.error(error.message || "An error occurred during registration");
+      console.error("Error during registration:", error);
+    }
   };
 
   return (
@@ -72,7 +106,13 @@ const Register = () => {
           />
         </label>
         <div className="checkbox-container">
-          <input type="checkbox" id="terms" required />
+          <input
+            type="checkbox"
+            id="terms"
+            checked={terms}
+            onChange={(e) => setTerms(e.target.checked)}
+            required
+          />
           <label htmlFor="terms">
             I agree to the{" "}
             <a href="/terms" target="_blank" rel="noopener noreferrer">

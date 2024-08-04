@@ -4,13 +4,11 @@
   flex-direction: column;
   height: 100vh;
   width: 100%;
-  /* overflow-y: auto; */
 }
 
 .dashboard_content {
   flex: 1;
   position: relative;
-  /* overflow-y: auto; */
 }
 
 .hero_section {
@@ -24,33 +22,40 @@
 
 .hero_content {
   position: absolute;
+  left: 10%; /* Adjust based on your design */
   top: 50%;
-  right: 10%;
   transform: translateY(-50%);
-  text-align: right;
-  will-change: transform, opacity;
-}
-
-.large_text1 {
-  font-size: 3rem;
+  text-align: left;
   color: white;
+}
+
+.line1, .line2, .line3 {
+  margin: 0;
+  line-height: 1.2; /* Adjust line height for spacing */
+}
+
+.line1 {
+  font-size: 2.5rem; /* Adjust as needed */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  transition: text-shadow 0.3s ease-in-out;
 }
 
-.large_text {
+.line2 {
   font-size: 3rem;
-  color: red;
   font-weight: bold;
-  will-change: transform, opacity; /* Optimize for GSAP animations */
 }
 
-.small_text {
-  font-size: 1.5rem;
-  color: black;
+.bks_text {
+  color: red;
 }
 
-.large_text1:hover {
+.line3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 10px; /* Adjust spacing */
+}
+
+/* Hover effects */
+.line1:hover, .line2:hover, .line3:hover {
   text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
 }
 
@@ -61,19 +66,19 @@
   }
 
   .hero_content {
-    right: 5%;
+    left: 5%;
   }
 
-  .large_text1 {
+  .line1 {
     font-size: 2rem;
   }
 
-  .large_text {
-    font-size: 2rem;
+  .line2 {
+    font-size: 2.5rem;
   }
 
-  .small_text {
-    font-size: 1.25rem;
+  .line3 {
+    font-size: 1.75rem;
   }
 }
 
@@ -84,19 +89,19 @@
   }
 
   .hero_content {
-    right: 2%;
+    left: 2%;
   }
 
-  .large_text1 {
+  .line1 {
     font-size: 1.5rem;
   }
 
-  .large_text {
-    font-size: 1.5rem;
+  .line2 {
+    font-size: 2rem;
   }
 
-  .small_text {
-    font-size: 1rem;
+  .line3 {
+    font-size: 1.5rem;
   }
 }
 
@@ -107,18 +112,18 @@
   }
 
   .hero_content {
-    right: 1%;
+    left: 1%;
   }
 
-  .large_text1 {
+  .line1 {
     font-size: 1.25rem;
   }
 
-  .large_text {
-    font-size: 1.25rem;
+  .line2 {
+    font-size: 1.5rem;
   }
 
-  .small_text {
-    font-size: 0.875rem;
+  .line3 {
+    font-size: 1.25rem;
   }
 }

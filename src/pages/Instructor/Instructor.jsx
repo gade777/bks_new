@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./instructor.css";
-// import mam from "../../assets/megha.jpg";
+import mam from "../../assets/megha-ma'am-2.jpeg";
 import { gsap } from "gsap";
 
 const Instructor = () => {
@@ -26,10 +26,10 @@ const Instructor = () => {
         </div>
         <div className="profile-container">
           <div className="profile-image">
-            {/* <img src={mam} alt="Megha Thete" /> */}
+            <img src={mam} alt="Megha Thete" style={{objectFit:'contain'}}/>
           </div>
           <div className="profile-text">
-            <h2 style={{ textAlign: "center" }}>Coach - Megha Thete</h2>
+            <h2 style={{color:'#eb5d1e'}}>Coach - Megha Thete</h2>
             <p>
               The Instructor is a management professional (MBA HR) and has worked
               with corporates in many MNCs. She is a Student of Masters in Indian

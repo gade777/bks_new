@@ -1,15 +1,15 @@
-import vedicScience from "../assets/bks.png";
-import comparisonOfScience from "../assets/bks.png";
-import ancientIndiaChemistry from "../assets/bks.png";
-import educationSystem from "../assets/bks.png";
-import historicalEvolution from "../assets/bks.png";
-import environmentalScience from "../assets/bks.png";
-import samkhyaYoga from "../assets/bks.png";
-import scientificHinduism from "../assets/bks.png";
-import vedicPhilosophy from "../assets/bks.png";
-import scienceOfReligion from "../assets/bks.png";
-import vedicScienceIdeology from "../assets/bks.png";
-import yogaRoots from "../assets/bks.png";
+import vedicScience from "../assets/Reaserch Paper/VEDIC_SCIENTIFIC_HERITAGE_OF_INDIA_28.png";
+import comparisonOfScience from "../assets/Reaserch Paper/A_COMPARISON_OF_MODERN_SCIENCE_WITH_VEDI.png";
+import ancientIndiaChemistry from "../assets/Reaserch Paper/CHEMISTRY_IN_ANCIENT_INDIA (1).png";
+import educationSystem from "../assets/Reaserch Paper/Education_System_in_Vedic_Period.png";
+import historicalEvolution from "../assets/Reaserch Paper/Historical_Evolution_Of_India_An_Assessm.png";
+import environmentalScience from "../assets/Reaserch Paper/Origin_of_Environmental_Science_From_Ved.png";
+import samkhyaYoga from "../assets/Reaserch Paper/Samkhya_Yoga_and_Vedanta.png";
+import scientificHinduism from "../assets/Reaserch Paper/Scientific_Hinduism_Bringing_Science_and.png";
+import vedicPhilosophy from "../assets/Reaserch Paper/The_Most_Scientific_Sanatan_Vedic_Philos (1).png";
+import scienceOfReligion from "../assets/Reaserch Paper/The_Science_of_Religion_in_the_Vedic_Tex.png";
+import vedicScienceIdeology from "../assets/Reaserch Paper/Vedic_Science_The_Hue_of_Saffron_Ideolog.png";
+import yogaRoots from "../assets/Reaserch Paper/Yoga_The_Roots_of_an_Orthodox_Darsana_Cl.png";
 
 const researchPapers = [
   {
@@ -18,7 +18,7 @@ const researchPapers = [
     price: 100,
     discount: 20,
     description: "Detailed study on Vedic Science.",
-    pdfLink: "./pdf/Vedic_Science_The_Hue_of_Saffron_Ideolog.pdf",
+    pdfLink: "../assets/pdf/Vedic_Science_viz_a_viz_Modern_Science (1).pdf",
   },
   {
     img: comparisonOfScience,
@@ -26,7 +26,7 @@ const researchPapers = [
     price: 120,
     discount: 15,
     description: "A comparison between modern science and Vedic Science.",
-    pdfLink: "./pdf/A_COMPARISON_OF_MODERN_SCIENCE_WITH_VEDI.pdf",
+    pdfLink: "../assets/pdf/A_COMPARISON_OF_MODERN_SCIENCE_WITH_VEDI.pdf",
   },
   {
     img: ancientIndiaChemistry,
@@ -34,7 +34,7 @@ const researchPapers = [
     price: 90,
     discount: 25,
     description: "Exploring ancient chemistry practices in India.",
-    pdfLink: "./pdf/Ancient_India_Chemistry.pdf",
+    pdfLink: "../assets/pdf/CHEMISTRY_IN_ANCIENT_INDIA (1).pdf",
   },
   {
     img: educationSystem,
@@ -42,7 +42,7 @@ const researchPapers = [
     price: 110,
     discount: 10,
     description: "Insights into the education system during the Vedic period.",
-    pdfLink: "./pdf/Education_System_in_Vedic_Period.pdf",
+    pdfLink: "../assets/pdf/Education_System_in_Vedic_Period.pdf",
   },
   {
     img: historicalEvolution,
@@ -50,7 +50,7 @@ const researchPapers = [
     price: 130,
     discount: 5,
     description: "A study on the historical evolution of India.",
-    pdfLink: "./pdf/Historical_Evolution_Of_India_An_Assessm.pdf",
+    pdfLink: "../assets/pdf/Historical_Evolution_Of_India_An_Assessm.pdf",
   },
   {
     img: environmentalScience,
@@ -58,7 +58,7 @@ const researchPapers = [
     price: 95,
     discount: 30,
     description: "The origin of environmental science from Vedic texts.",
-    pdfLink: "./pdf/Origin_of_Environmental_Science_From_Ved.pdf",
+    pdfLink: "../assets/pdf/Origin_of_Environmental_Science_From_Ved.pdf",
   },
   {
     img: samkhyaYoga,
@@ -66,7 +66,7 @@ const researchPapers = [
     price: 105,
     discount: 20,
     description: "Exploring the concepts of Samkhya Yoga and Vedanta.",
-    pdfLink: "./pdf/Samkhya_Yoga_and_Vedanta.pdf",
+    pdfLink: "../assets/pdf/Samkhya_Yoga_and_Vedanta.pdf",
   },
   {
     img: scientificHinduism,
@@ -74,7 +74,7 @@ const researchPapers = [
     price: 85,
     discount: 15,
     description: "An analysis of scientific aspects in Hinduism.",
-    pdfLink: "./pdf/Scientific_Hinduism_Bringing_Science_and.pdf",
+    pdfLink: "../assets/pdf/Scientific_Hinduism_Bringing_Science_and.pdf",
   },
   {
     img: vedicPhilosophy,
@@ -82,7 +82,7 @@ const researchPapers = [
     price: 125,
     discount: 10,
     description: "A study of Vedic Philosophy and its implications.",
-    pdfLink: "./pdf/Vedic_Philosophy.pdf",
+    pdfLink: "../assets/pdf/The_Most_Scientific_Sanatan_Vedic_Philos (1).pdf",
   },
   {
     img: scienceOfReligion,
@@ -90,7 +90,7 @@ const researchPapers = [
     price: 140,
     discount: 25,
     description: "The science of religion as depicted in Vedic texts.",
-    pdfLink: "./pdf/The_Science_of_Religion_in_the_Vedic_Tex.pdf",
+    pdfLink: "../assets/pdf/The_Science_of_Religion_in_the_Vedic_Tex.pdf",
   },
   {
     img: vedicScienceIdeology,
@@ -98,7 +98,7 @@ const researchPapers = [
     price: 115,
     discount: 30,
     description: "Understanding Vedic Science Ideology.",
-    pdfLink: "./pdf/Vedic_Science_The_Hue_of_Saffron_Ideolog.pdf",
+    pdfLink: "../assets/pdf/Vedic_Science_The_Hue_of_Saffron_Ideolog.pdf",
   },
   {
     img: yogaRoots,
@@ -106,7 +106,7 @@ const researchPapers = [
     price: 125,
     discount: 20,
     description: "The roots of Yoga in the Vedic tradition.",
-    pdfLink: "./pdf/Yoga_The_Roots_of_an_Orthodox_Darsana_Cl.pdf",
+    pdfLink: "../assets/pdf/Yoga_The_Roots_of_an_Orthodox_Darsana_Cl.pdf",
   },
 ];
 

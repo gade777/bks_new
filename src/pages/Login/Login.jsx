@@ -5,19 +5,42 @@ import "react-toastify/dist/ReactToastify.css";
 import "./login.css";
 
 const Login = () => {
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (name === "" || password === "") {
+
+    if (email === "" || password === "") {
       toast.error("All fields are required");
       return;
     }
-    // Perform login logic here
-    toast.success("Login Successful");
-    navigate("/home");
+
+    try {
+      // Perform login
+      const response = await fetch('https://us-central1-vedik-78b04.cloudfunctions.net/loginUser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        toast.success(result.message);
+        // Save token to local storage or state
+        localStorage.setItem('token', result.token);
+        navigate("/");
+      } else {
+        toast.error(result.error || "Login failed");
+      }
+    } catch (error) {
+      toast.error("An error occurred during login");
+      console.error("Error during login:", error);
+    }
   };
 
   return (
@@ -25,11 +48,11 @@ const Login = () => {
       <h2>Login</h2>
       <form onSubmit={handleLogin} className="login-form">
         <label>
-          Name <span className="required">*</span>
+          Email <span className="required">*</span>
           <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </label>

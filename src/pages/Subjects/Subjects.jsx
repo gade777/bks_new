@@ -43,8 +43,8 @@ const Subjects = () => {
   
   return (
     <div>
-      <h1 style={{textAlign:'center', marginTop:'5vh'}}>Subjects</h1>
-      <h2 style={{textAlign:'center', marginTop:'2vh'}}>The following subjects like</h2>
+      <h1 style={{textAlign:'center', marginTop:'5vh',fontSize:'3rem'}}>Subjects</h1>
+      <h2 style={{textAlign:'center', marginTop:'2vh',fontSize:'2rem'}}>The following subjects like</h2>
       <div className="image-container" ref={imageContainerRef}>
         {images.map((img, index) => (
           <div key={index} className="image-wrapper">

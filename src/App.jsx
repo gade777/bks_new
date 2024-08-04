@@ -12,6 +12,8 @@ import Research from "./pages/Reasarch/Reasarch";
 import Cart from "./pages/Cart/Cart";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login"
+import India from "./pages/india/india";
+import Us from "./pages/Us/Us"
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
             <Route path="/cart" element={<Cart/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
+            <Route path="/workshop-in" element={<India />} />
+            <Route path="/workshop-Global" element={<Us/>}/>
           </Routes>
         </div>
       </div>

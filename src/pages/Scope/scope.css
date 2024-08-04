@@ -1,21 +1,24 @@
+/* General Styles */
 .rectangle {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   background: linear-gradient(135deg, #ffd700, #8b4513);
+  padding: 10px; /* Add padding to container */
+  font-size: 20px;
 }
 
 .box {
-  width: calc(25% - 20px); /* Adjust as needed for spacing */
-  margin: 10px; /* Add margin to create space between boxes */
+  width: calc(25% - 20px); /* Four boxes per row with spacing */
+  margin: 10px; /* Space between boxes */
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content vertically */
-  height: 300px; /* Set desired height for the boxes */
+  align-items: center; /* Center content horizontally */
+  height: 300px; /* Fixed height for consistency */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   justify-content: space-evenly;
   opacity: 0; /* Initial state for animation */
@@ -24,12 +27,12 @@
 }
 
 .box:hover {
-  transform: translateY(-5px); /* Move box up slightly on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow effect on hover */
+  transform: translateY(-5px); /* Slight move on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
 }
 
 .box h1 {
-  font-size: 24px; /* Adjust font size as needed */
+  font-size: 24px; /* Font size for headings */
   text-align: center; /* Center text horizontally */
 }
 
@@ -40,7 +43,7 @@
 
 .scope_p {
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.5rem; /* Font size for paragraphs */
   margin: 2rem;
   opacity: 0; /* Initial state for animation */
   transform: translateY(50px); /* Initial state for animation */
@@ -49,16 +52,31 @@
 
 .scope_h1 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2rem; /* Font size for headings */
   opacity: 0; /* Initial state for animation */
   transform: translateY(50px); /* Initial state for animation */
   will-change: opacity, transform;
 }
 
-/* Media queries for responsiveness */
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .box {
+    width: calc(33.333% - 20px); /* Three boxes per row on medium screens */
+  }
+
+  .scope_p {
+    font-size: 1.05rem; /* Adjust font size for medium screens */
+    margin: 1.5rem; /* Adjust margin for medium screens */
+  }
+
+  .scope_h1 {
+    font-size: 1.75rem; /* Adjust font size for medium screens */
+  }
+}
+
 @media (max-width: 768px) {
   .box {
-    width: calc(50% - 20px); /* Adjust box width for two columns on smaller screens */
+    width: calc(50% - 20px); /* Two boxes per row on smaller screens */
   }
 
   .scope_p {
@@ -68,5 +86,20 @@
 
   .scope_h1 {
     font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .box {
+    width: calc(100% - 20px); /* One box per row on very small screens */
+  }
+
+  .scope_p {
+    font-size: 0.9rem; /* Adjust font size for very small screens */
+    margin: 0.5rem; /* Adjust margin for very small screens */
+  }
+
+  .scope_h1 {
+    font-size: 1.25rem; /* Adjust font size for very small screens */
   }
 }

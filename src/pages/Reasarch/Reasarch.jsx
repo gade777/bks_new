@@ -1,44 +1,65 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./reasarch.css";
-import papers from "../../assets/researchPapers";
+import React, { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "./research.css"; // Ensure this path is correct
+import papers from "../../assets/researchPapers"; // Ensure this path is correct
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Research = () => {
-  const [selectedPaper, setSelectedPaper] = useState(null);
-  const navigate = useNavigate();
+  const imageContainerRef = useRef(null);
 
-  const handleVisitClick = (paper) => {
-    setSelectedPaper(paper);
-  };
+  useEffect(() => {
+    const elements = imageContainerRef.current.children;
 
-  const handleAddToCartClick = () => {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(selectedPaper);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    navigate("/cart");
-  };
+    // Initial animation
+    const initialAnimation = gsap.fromTo(
+      elements,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: imageContainerRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
 
-  const closePopup = () => {
-    setSelectedPaper(null);
+    // New animation to move gallery from left to right
+    initialAnimation.eventCallback("onComplete", () => {
+      gsap.fromTo(
+        imageContainerRef.current,
+        { x: -window.innerWidth },
+        { x: 0, duration: 1, ease: "power3.out" }
+      );
+    });
+  }, []);
+
+  const handleButtonClick = () => {
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLScmx7vIg2gm0RRPiZE-uS0BwvlmMlx8xPviHKZTVXSdYY3lUA/viewform", "_blank");
   };
 
   return (
     <div className="research-container">
       <div className="header">
-        <h5>
-          <b>Research Paper</b>
-        </h5>
+        <h5><b>Research Paper</b></h5>
       </div>
       <main>
-        <div id="gallery">
+        <div id="gallery" ref={imageContainerRef}>
           {papers.map((paper, index) => (
             <figure key={index}>
               <img src={paper.img} alt={paper.title} />
               <figcaption>
                 <button
-                  onClick={() => handleVisitClick(paper)}
                   aria-label={`Visit and download ${paper.title}`}
                   className="visit-button"
+                  onClick={handleButtonClick}
                 >
                   Visit & Download
                 </button>
@@ -46,26 +67,6 @@ const Research = () => {
             </figure>
           ))}
         </div>
-        {selectedPaper && (
-          <div className="popup" role="dialog" aria-labelledby="popup-title">
-            <div className="popup-content">
-              <h2 id="popup-title">{selectedPaper.title}</h2>
-              <p>{selectedPaper.description}</p>
-              <p>
-                Price: ₹{selectedPaper.price}{" "}
-                <span className="discount">Discount: {selectedPaper.discount}%</span>
-              </p>
-              <div className="popup-buttons">
-                <button onClick={handleAddToCartClick} className="add-to-cart-button">
-                  Add to Cart
-                </button>
-                <button onClick={closePopup} className="close-button">
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
       </main>
     </div>
   );

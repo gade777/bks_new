@@ -1,66 +1,72 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom'; 
 import './Navbar.css';
+import logo from '../../assets/logo_1.png'; 
 
-function Navbar() {
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [menuOpen, setMenuOpen] = useState(false);
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(null);
+  const navbarRef = useRef(null);
 
-  const toggleDropdown = (dropdownName) => {
-    if (openDropdown === dropdownName) {
-      setOpenDropdown(null);
-    } else {
-      setOpenDropdown(dropdownName);
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const toggleDropdown = (index) => {
+    setDropdownOpen(dropdownOpen === index ? null : index);
+  };
+
+  const handleDropdownItemClick = () => {
+    setDropdownOpen(null); // Close dropdown when an item is clicked
+  };
+
+  const handleClickOutside = (event) => {
+    if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+      setIsOpen(false);
+      setDropdownOpen(null);
     }
   };
 
-  const closeDropdown = () => {
-    setOpenDropdown(null);
-    setMenuOpen(false);
-  };
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-    if (menuOpen) {
-      setOpenDropdown(null);
-    }
-  };
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
-    <div className="navbar">
-      <Link to="/" className="logo">
-        {/* <img src={bks1} alt="Logo" /> */}
-      </Link>
-      <div className={`links ${menuOpen ? 'open' : ''}`}>
-        <Link to="/" onClick={closeDropdown}>Home</Link>
-        <div className="dropdown">
-          <span onClick={() => toggleDropdown('content')}>Content</span>
-          <div className={`dropdown-content ${openDropdown === 'content' ? 'show' : ''}`}>
-            <a href="https://www.hindueshop.com/" target="_blank" rel="noopener noreferrer" onClick={closeDropdown}>Books</a>
-            <Link to="/research" onClick={closeDropdown}>Research Papers</Link>
-          </div>
-        </div>
-        <div className="dropdown">
-          <span onClick={() => toggleDropdown('liveWorkshop')}>Live Workshop</span>
-          <div className={`dropdown-content ${openDropdown === 'liveWorkshop' ? 'show' : ''}`}>
-            <Link to="/workshop-india" onClick={closeDropdown}>India</Link>
-            <Link to="/workshop-global" onClick={closeDropdown}>Global</Link>
-          </div>
-        </div>
-        <Link to="/Instructor" onClick={closeDropdown}>Coach Profile</Link>
-        <div className="auth-buttons">
-          <Link to="/login" className="auth-button" onClick={closeDropdown}>Login</Link>
-          <Link to="/register" className="auth-button" onClick={closeDropdown}>Register</Link>
-        </div>
-        <Link to="/cart" className="cart-link" onClick={closeDropdown}>Cart</Link>
+    <nav className="navbar" ref={navbarRef}>
+      <div className="navbar-logo">
+        <img src={logo} alt="Logo" />
       </div>
-      <div className="menu-icon" onClick={toggleMenu}>
-        <FontAwesomeIcon icon={faBars} />
-      </div>
-    </div>
+      <ul className={`navbar-menu ${isOpen ? 'active' : ''}`}>
+        <li><Link to="/">Home</Link></li>
+        <li className="dropdown">
+          <a href="#" onClick={(e) => { e.preventDefault(); toggleDropdown(1); }}>Content</a>
+          <ul className={`dropdown-menu ${dropdownOpen === 1 ? 'show' : ''}`}>
+            <li><Link to="https://www.hindueshop.com/" onClick={handleDropdownItemClick}>Books</Link></li>
+            <li><Link to="/research" onClick={handleDropdownItemClick}>Research Papers</Link></li>
+          </ul>
+        </li>
+        <li className="dropdown">
+          <a href="#" onClick={(e) => { e.preventDefault(); toggleDropdown(2); }}>Live Workshops</a>
+          <ul className={`dropdown-menu ${dropdownOpen === 2 ? 'show' : ''}`}>
+            <li><Link to="/workshop-in" onClick={handleDropdownItemClick}>India</Link></li>
+            <li><Link to="/workshop-Global" onClick={handleDropdownItemClick}>Global</Link></li>
+          </ul>
+        </li>
+        <li><Link to="/Instructor">Coach Profile</Link></li>
+        {/* <li><Link to="/cart">Cart</Link></li> */}
+      </ul>
+      {/* <div className="navbar-buttons">
+        <Link to="/login" className="btn">Login</Link>
+        <Link to="/register" className="btn">Register</Link>
+      </div> */}
+      <button className="navbar-toggle" onClick={toggleNavbar}>
+        <span className="navbar-toggle-icon"></span>
+      </button>
+    </nav>
   );
-}
+};
 
 export default Navbar;

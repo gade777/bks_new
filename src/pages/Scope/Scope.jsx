@@ -59,7 +59,7 @@ const Scope = () => {
   return (
     <div className="scope_container" ref={scopeContainerRef}>
       <div>
-        <h1 style={{ textAlign: 'center' }} className="scope_h1" ref={titleRef}>Scope</h1>
+        <h1 style={{ textAlign: 'center',fontSize:'50px' }} className="scope_h1" ref={titleRef}>Scope</h1>
         <p className="scope_p" ref={descriptionRef}>
           BHARAT’s sciences are based on fundamental principles, axioms, logical
           inference and empirical observations are generally written down in

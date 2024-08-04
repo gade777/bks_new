@@ -1,20 +1,22 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useLocation, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./cart.css";
-// import img from "../../assets/cartempty.webp";
+import img from "../../assets/cartempty.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Cart = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { state } = location;
   const paper = state?.paper || {};
 
   const [cartItems, setCartItems] = useState([]);
   const [quantities, setQuantities] = useState({});
   const [paymentSuccess, setPaymentSuccess] = useState(false);
+  const [isRazorpayLoaded, setIsRazorpayLoaded] = useState(false);
 
   useEffect(() => {
     const cartData = JSON.parse(localStorage.getItem("cart")) || [];
@@ -25,7 +27,6 @@ const Cart = () => {
     }, {});
     setQuantities(initialQuantities);
 
-    // Check if returning from payment page
     if (window.location.search.includes("payment=success")) {
       setPaymentSuccess(true);
       clearCart();
@@ -67,27 +68,27 @@ const Cart = () => {
         },
       }
     );
-
-    gsap.fromTo(
-      ".payment-success",
-      { opacity: 0, scale: 0.8 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.5,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".payment-success",
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
   }, [cartItems, paymentSuccess]);
 
+  useEffect(() => {
+    const loadRazorpayScript = () => {
+      if (document.getElementById('razorpay-script')) {
+        setIsRazorpayLoaded(true);
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.id = "razorpay-script";
+      script.onload = () => setIsRazorpayLoaded(true);
+      document.body.appendChild(script);
+    };
+
+    loadRazorpayScript();
+  }, []);
+
   const handleQuantityChange = (title, newQuantity) => {
-    setQuantities((prevQuantities) => ({
+    setQuantities(prevQuantities => ({
       ...prevQuantities,
       [title]: newQuantity,
     }));
@@ -100,30 +101,84 @@ const Cart = () => {
     }, 0);
   };
 
-  const freeShippingThreshold = 18;
+  const freeShippingThreshold = 1800; // Adjusted threshold to match realistic cart totals
   const totalPrice = getTotalPrice();
-  const amountForFreeShipping = freeShippingThreshold - totalPrice;
+  const amountForFreeShipping = Math.max(0, freeShippingThreshold - totalPrice);
 
   const clearCart = () => {
     localStorage.removeItem("cart");
     setCartItems([]);
   };
 
-  const handleCheckoutClick = () => {
-    // Open payment link
-    window.location.href = "https://rzp.io/i/lIeciUoS";
+  const handleCheckoutClick = async () => {
+    if (!isRazorpayLoaded) {
+      console.error("Razorpay script not loaded.");
+      return;
+    }
 
-    // Clear cart after opening payment link
-    setTimeout(() => {
-      clearCart();
-    }, 1000); // Adjust the timeout as needed
+    const orderData = {
+      amount: totalPrice * 100, // Convert to paisa
+      currency: "INR",
+    };
+
+    try {
+      const response = await fetch('https://us-central1-vedik-78b04.cloudfunctions.net/createRazorpayOrder', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      const result = await response.json();
+      if (!result.orderId) throw new Error("Failed to create order");
+
+      const options = {
+        key: 'rzp_test_HVZCFfDTz5rdFC', // Your Razorpay key
+        amount: result.amount, // Amount in paisa
+        currency: result.currency,
+        name: 'AppOrbis Tehcnologies Pvt.Ltd',
+        description: 'Payment for research papers',
+        order_id: result.orderId,
+        handler: async function (response) {
+          const paymentData = {
+            orderId: result.orderId,
+            paymentId: response.razorpay_payment_id,
+            signature: response.razorpay_signature,
+            amount: result.amount,
+            email: localStorage.getItem("userEmail"),
+            name: localStorage.getItem("userName"),
+            cart: cartItems,
+          };
+
+          await fetch('https://us-central1-vedik-78b04.cloudfunctions.net/savePaymentDetails', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(paymentData),
+          });
+
+          localStorage.removeItem("cart");
+          navigate("/thank-you");
+        },
+        prefill: {
+          name: localStorage.getItem("userName"),
+          email: localStorage.getItem("userEmail"),
+        },
+      };
+
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    } catch (error) {
+      console.error("Error during checkout:", error);
+    }
   };
 
-  // Check if cart is empty
   if (!cartItems.length) {
     return (
       <div className="empty-cart">
-        {/* <img src={img} alt="Empty Cart" /> */}
+        <img src={img} alt="Empty Cart" style={{ height: "35vh", width: "20vw" }} />
         <h2>Your cart is empty.</h2>
         <p>Looks like you haven't added anything to your cart yet.</p>
         <Link to="/research" className="keep-shopping-btn">
@@ -142,14 +197,14 @@ const Cart = () => {
         </div>
       )}
       <div className="cart-content">
-        <h2>Your cart</h2>
+        <h2>Your Cart</h2>
 
         <div className="free-shipping">
           <div className="progress-bar">
             <div
               className="progress"
               style={{
-                width: `${(totalPrice / freeShippingThreshold) * 100}%`,
+                width: `${Math.min((totalPrice / freeShippingThreshold) * 100, 100)}%`,
               }}
             ></div>
           </div>
@@ -198,10 +253,8 @@ const Cart = () => {
 
         <div className="summary">
           <h3>Summary</h3>
-          <p>
-            Subtotal ({cartItems.length} Items): ₹{totalPrice.toFixed(2)}
-          </p>
-          <h3>Balance: ₹{(totalPrice + 2).toFixed(2)}</h3>
+          <p>Subtotal ({cartItems.length} Items): ₹{totalPrice.toFixed(2)}</p>
+          <h3>Total: ₹{(totalPrice + 2).toFixed(2)}</h3>
           <button onClick={handleCheckoutClick} className="pay-now-btn">Checkout</button>
         </div>
       </div>
