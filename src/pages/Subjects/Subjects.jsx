@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate } from 'react-router-dom';
 import Img_1 from "../../assets/subjects-1.jpg";
 import Img_2 from "../../assets/subjects-2.jpg";
 import Img_3 from "../../assets/subjects-3.jpg";
@@ -12,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Subjects = () => {
   const imageContainerRef = useRef(null);
+  const navigate = useNavigate(); // Initialize navigate function
 
   useEffect(() => {
     gsap.fromTo(
@@ -40,7 +42,12 @@ const Subjects = () => {
     { src: Img_4, title: "Astronomy Discover the wonders of the universe through our Astronomy programs and lectures." },
     { src: Img_5, title: "Literature Explore classic and contemporary literature with engaging study materials and discussions." }
   ]; 
-  
+
+  // Function to handle button click
+  const handleButtonClick = () => {
+    navigate('/research'); // Navigate to the desired route
+  };
+
   return (
     <div>
       <h1 style={{textAlign:'center', marginTop:'5vh',fontSize:'3rem'}}>Subjects</h1>
@@ -66,7 +73,7 @@ const Subjects = () => {
         ))}
       </div>
       <div className="button-container">
-        <button className="know-more-button">To Know More About Detail Concepts of Subjects</button>
+        <button className="know-more-button" onClick={handleButtonClick}>To Know More About Detail Concepts of Subjects</button>
       </div>
     </div>
   );

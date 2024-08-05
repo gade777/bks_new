@@ -59,7 +59,7 @@ const About = () => {
         <ul>
           <li>
             <FaCheckCircle className="icon" />
-            <b>NEP 2020 Compliant:</b> IKS is mandatory in future education.
+            <b>NEP 2020 Compliant: </b>IKS is mandatory in future education.
           </li>
           <li>
             <FaCheckCircle className="icon" />
@@ -67,7 +67,7 @@ const About = () => {
           </li>
           <li>
             <FaCheckCircle className="icon" />
-            <b> Dual Qualification:</b> Enhance your current education with an
+            <b> Dual Qualification: </b>Enhance your current education with an
             IKS diploma.
           </li>
           <li>

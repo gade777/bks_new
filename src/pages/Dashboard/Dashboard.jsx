@@ -17,7 +17,7 @@ import Footer from "../footer/Footer";
 const Dashboard = () => {
   const images = [image1, image2, image3, image4];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const heroSectionRef = useRef(null);
+  const slidingImagesRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,32 +27,36 @@ const Dashboard = () => {
   }, [images.length]);
 
   useEffect(() => {
-    const heroSection = heroSectionRef.current;
-    gsap.fromTo(
-      heroSection,
-      { x: -100, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1 }
-    );
+    const slidingImages = slidingImagesRef.current;
+    if (slidingImages) {
+      gsap.fromTo(
+        slidingImages,
+        { opacity: 0, x: 100 },
+        { opacity: 1, x: 0, duration: 1 }
+      );
+    }
   }, [currentImageIndex]);
 
   return (
     <div className="dashboard_container">
       <div className="dashboard_content">
-        <div
-          className="hero_section"
-          ref={heroSectionRef}
-          style={{
-            backgroundImage: `url(${images[currentImageIndex]})`,
-            transition: "background-image 0.5s ease-in-out",
-          }}
-        >
+        <div className="hero_section">
+          <div className="background_image" />
           <div className="hero_content">
-            <h1 className="line1">Better digital experience with</h1>
             <h1 className="line2">
               <span className="bks_text">BKS</span>
             </h1>
             <h1 className="line3">BHARAT KNOWLEDGE SYSTEM</h1>
+            <h1 className="line1">Better digital experience</h1>
           </div>
+          <div
+            className="sliding_images"
+            ref={slidingImagesRef}
+            style={{
+              backgroundImage: `url(${images[currentImageIndex]})`,
+              transition: "background-image 0.5s ease-in-out",
+            }}
+          />
         </div>
         <About />
         <Vision />
