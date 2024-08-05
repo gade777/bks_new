@@ -1,15 +1,15 @@
-import vedicScience from "../assets/Reaserch Paper/VEDIC_SCIENTIFIC_HERITAGE_OF_INDIA_28.png";
-import comparisonOfScience from "../assets/Reaserch Paper/A_COMPARISON_OF_MODERN_SCIENCE_WITH_VEDI.png";
-import ancientIndiaChemistry from "../assets/Reaserch Paper/CHEMISTRY_IN_ANCIENT_INDIA (1).png";
-import educationSystem from "../assets/Reaserch Paper/Education_System_in_Vedic_Period.png";
-import historicalEvolution from "../assets/Reaserch Paper/Historical_Evolution_Of_India_An_Assessm.png";
-import environmentalScience from "../assets/Reaserch Paper/Origin_of_Environmental_Science_From_Ved.png";
-import samkhyaYoga from "../assets/Reaserch Paper/Samkhya_Yoga_and_Vedanta.png";
-import scientificHinduism from "../assets/Reaserch Paper/Scientific_Hinduism_Bringing_Science_and.png";
-import vedicPhilosophy from "../assets/Reaserch Paper/The_Most_Scientific_Sanatan_Vedic_Philos (1).png";
-import scienceOfReligion from "../assets/Reaserch Paper/The_Science_of_Religion_in_the_Vedic_Tex.png";
-import vedicScienceIdeology from "../assets/Reaserch Paper/Vedic_Science_The_Hue_of_Saffron_Ideolog.png";
-import yogaRoots from "../assets/Reaserch Paper/Yoga_The_Roots_of_an_Orthodox_Darsana_Cl.png";
+import vedicScience from "../assets/Reaserch Paper/Ancient ES.png";
+import comparisonOfScience from "../assets/Reaserch Paper/Atharvveda.png";
+import ancientIndiaChemistry from "../assets/Reaserch Paper/Essence IL.png";
+import educationSystem from "../assets/Reaserch Paper/Introduction BKS.png";
+import historicalEvolution from "../assets/Reaserch Paper/Introduction VHS.png";
+import environmentalScience from "../assets/Reaserch Paper/Rigveda.png";
+import samkhyaYoga from "../assets/Reaserch Paper/Samveda.png";
+import scientificHinduism from "../assets/Reaserch Paper/Sarswati SC.png";
+import vedicPhilosophy from "../assets/Reaserch Paper/TIme Astronomy.png";
+import scienceOfReligion from "../assets/Reaserch Paper/Trade CAI.png";
+import vedicScienceIdeology from "../assets/Reaserch Paper/Vedic Science.png";
+import yogaRoots from "../assets/Reaserch Paper/Yajusrveda.png";
 
 const researchPapers = [
   {

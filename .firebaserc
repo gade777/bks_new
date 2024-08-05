@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "vedik-78b04"
-  }
+    "default": "vedik-78b04",
+    "production": "vedik-78b04"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
