@@ -86,12 +86,9 @@ const Contact = () => {
       <div className="social_networks_container">
         <h2 className="social_heading">Our Social Networks</h2>
         <div className="social_icons">
-          <a href="#" className="social_icon"><FaFacebook /></a>
-          <a href="#" className="social_icon"><FaTwitter /></a>
-          <a href="#" className="social_icon"><FaInstagram /></a>
-          <a href="#" className="social_icon"><FaLinkedin /></a>
-          <a href="#" className="social_icon"><FaSkype /></a>
-          <a href="#" className="social_icon"><FaWhatsapp /></a>
+          <a href="https://www.instagram.com/bharat_knowledge_system/" className="social_icon"><FaInstagram /></a>
+          <a href="https://www.facebook.com/profile.php?id=61562084903661&mibextid=ZbWKwL" className="social_icon"><FaFacebook /></a>
+          <a href="https://wa.me/9225521456" className="social_icon"><FaWhatsapp /></a>
         </div>
       </div>
     </div>
