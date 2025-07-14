@@ -1,14 +1,13 @@
-/* Gallery.css */
 .gallery_container {
   width: 100%;
   margin: auto;
   background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
   padding: 20px;
-  height: auto; /* Adjusted to auto to fit content */
+  height: auto;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  max-height: 70vh; /* Adjust height to a percentage of the viewport height */
-  overflow: hidden; /* Ensure content fits within the container */
+  max-height: 60vh;
+  overflow: hidden;
 }
 
 .image_slide {
@@ -16,53 +15,89 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* padding: 10px; */
+  /* padding-top: 15px; */
+  /* padding-bottom: 15px; */
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.slide_image_wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 5px;
 }
 
 .slide_image {
-  width: 100%; /* Make image responsive */
-  max-width: 100%; /* Ensure the image does not exceed container width */
-  height: 250px; /* Maintain aspect ratio */
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  /* object-fit: cover; */
   border-radius: 5px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  object-fit: fill; /* Adjusted to cover for better fit */
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-.image_description {
-  color: black;
-  font-size: 0.75rem; /* Adjusted for small screens */
+.slick-slide {
+  padding: 0 10px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 0.9rem;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  max-width: 100%; /* Full width on small screens */
-  margin: 10px auto; /* Adjusted margin for better spacing */
-  padding: 5px 10px;
-  border-radius: 3px;
+  padding: 10px;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: 5px;
 }
 
-/* Media queries for responsive design */
+.slide_image_wrapper:hover .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.slick-center .slide_image {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.slick-center .overlay.has-text {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay:not(.has-text) {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #fff;
+}
+
 @media (min-width: 600px) {
   .gallery_container {
-    max-height: 90vh; /* Adjust height for larger screens */
+    max-height: 75vh;
   }
-
-  .slide_image {
-    max-width: 100%; /* Ensure responsiveness */
-  }
-
-  .image_description {
-    font-size: 1rem; /* Increase font size for larger screens */
+  .slide_image_wrapper {
+    height: 250px;
   }
 }
 
 @media (min-width: 900px) {
   .gallery_container {
-    max-height: 70vh; /* Adjust height for even larger screens */
+    max-height: 60vh;
   }
-
-  .slide_image {
-    max-width: 100%; /* Ensure responsiveness */
-  }
-
-  .image_description {
-    font-size: 1.2rem; /* Increase font size for even larger screens */
+  .slide_image_wrapper {
+    height: 300px;
   }
 }

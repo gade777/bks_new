@@ -4,6 +4,8 @@ import img1 from "../../assets/bks.jpeg";
 import img2 from "../../assets/vedic.jpeg";
 import img3 from "../../assets/purany.jpeg";
 import img4 from "../../assets/course.jpeg";
+import img5 from "../../assets/upanishads.png"
+
 
 // Plan Component
 const Plan = ({ imageSrc, name, details, fees }) => (
@@ -35,7 +37,7 @@ const India = () => {
   const plans = [
     {
       name: "Science in Puranas",
-      imageSrc: img1, // Use imported image
+      imageSrc: img3, // Use imported image
       details: [
         "Mahapuranas",
         "Upapuranas",
@@ -50,7 +52,7 @@ const India = () => {
     },
     {
       name: "Introduction to BKS",
-      imageSrc: img2, // Use imported image
+      imageSrc: img1, // Use imported image
       details: [
         "What is IKS? Indology, BKS History, Basic knowledge of Indian culture and tradition",
         "Indian Architecture",
@@ -65,7 +67,7 @@ const India = () => {
     },
     {
       name: "Physics in Vedas",
-      imageSrc: img3, // Use imported image
+      imageSrc: img2, // Use imported image
       details: [
         "Energy",
         "Light",
@@ -76,6 +78,20 @@ const India = () => {
         "Motion and many more concepts explained as per Veda",
         "Atmosphere",
         "Course Code: PIV-01"
+      ],
+      fees: "$30/- Only"
+    },
+    {
+      name: "Origin and Principles of Upanishad",
+      imageSrc: img5, // Use imported image
+      details: [
+        "Origin and Introduction of Upanishad",
+        "Theory",
+        "Principles",
+        "Four Mahavakyas",
+        "Introduction 14 main Upanishad",
+        "Essence of Upanishad",
+        "Course Code: OPU-01"
       ],
       fees: "$30/- Only"
     }

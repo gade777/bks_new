@@ -59,7 +59,7 @@
   .plan-image {
     width: 100px;
     height: 100px;
-    object-fit: cover;
+    object-fit:fill;
     border-radius: 50%;
     margin-bottom: 15px;
   }
