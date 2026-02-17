@@ -31,17 +31,16 @@ const Instructor = () => {
           <div className="profile-text">
             <h2 style={{color:'#eb5d1e'}}>Coach - Megha Thete</h2>
             <p>
-              The Instructor is a management professional (MBA HR) and has worked
-              with corporates in many MNCs. She is a Student of Masters in Indian
-              Knowledge System (MIKS) from Bhishma College of Indic Studies and
-              Infinity Foundation USA and a mother of two daughters. Being an
-              entrepreneur and having experience in running a social NGO for Women
-              Empowerment, she also has profound understanding of ancient
-              traditions and philosophies and she has inspired a deeper connection
-              to our cultural roots. She has deeper insights into the timeless
-              wisdom of Vedas, Upanishads, and other sacred texts in BKS. Coach's
-              commitment reflects the holistic approach inherent in the Bharat
-              knowledge system (BKS).
+              The Instructor is a management professional (MBA HR) and has worked with corporates in many MNCs.
+              <br/>
+              <br/>
+              She has done MA in Indian Knowledge System (MIKS) from Bhishma College of Indic Studies and Infinity Foundation USA.
+              <br/>
+              <br/>
+              Being an entrepreneur and having experience in running a social NGO for Women Empowerment, she also has a profound understanding of Ancient Traditions and Philosophies.
+              <br/>
+              <br/>
+              She has inspired a deeper connection to our cultural roots. She has deeper insights into the timeless wisdom of Vedas, Upanishads, and other sacred texts in BKS. Coach's commitment reflects the holistic approach inherent in the Bharat knowledge system (BKS).
             </p>
           </div>
         </div>

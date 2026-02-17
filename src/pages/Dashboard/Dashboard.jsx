@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import "../Dashboard/Dashboard.css";
-import image1 from "../../assets/dashboard_1.png";
+// import image1 from "../../assets/dashboard_1.png";
 import image2 from "../../assets/dashboard_2.png";
-import image3 from "../../assets/dashboard-bg1.jpeg";
-import image4 from "../../assets/dashboard-bg3.jpeg";
+// import image3 from "../../assets/dashboard-bg1.jpeg";
+// import image4 from "../../assets/dashboard-bg3.jpeg";
+import image5 from "../../assets/img.png";
+import image6 from "../../assets/img1.png";
+import image7 from "../../assets/img2.png";
 import About from "../AboutUs/About";
 import Vision from "../Vision/Vision";
 import Scope from "../Scope/Scope";
@@ -15,7 +18,7 @@ import Gallery from "../Gallery/Gallery";
 import Footer from "../footer/Footer";
 
 const Dashboard = () => {
-  const images = [image1, image2, image3, image4];
+  const images = [image2, image5, image6, image7];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const slidingImagesRef = useRef(null);
 
@@ -48,6 +51,16 @@ const Dashboard = () => {
             </h1>
             <h1 className="line3">BHARAT KNOWLEDGE SYSTEM</h1>
             <h1 className="line1">Better digital experience</h1>
+            <button
+              className="summer_camp_btn"
+              onClick={() => {
+                // Stay on same page - no navigation
+                console.log("Summer Camp Registration clicked");
+              }}
+            >
+              <span className="btn_text">Summer Camp Registration</span>
+              <div className="btn_glow"></div>
+            </button>
           </div>
           <div
             className="sliding_images"

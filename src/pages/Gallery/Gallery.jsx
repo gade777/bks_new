@@ -19,6 +19,7 @@ import image11 from "../../assets/img_12.jpeg";
 import image12 from "../../assets/img_13.jpeg";
 import image13 from "../../assets/img_14.png";
 import image14 from "../../assets/img_15.png";
+import image16 from "../../assets/img_16.jpg";
 
 const images = [
   { src: image1, description: "" },
@@ -36,6 +37,7 @@ const images = [
   { src: image13, description: "Lead the NGO for Woman and Kids Empowerment in Cultural Attributes 1" },
   { src: image14, description: "" },
   { src: image15, description: "" },
+  { src: image16, description: " IKS DEGREE" }
 ];
 
 const Gallery = () => {
@@ -96,9 +98,8 @@ const Gallery = () => {
                 className="slide_image"
               />
               <div
-                className={`overlay ${
-                  image.description ? "has-text" : ""
-                }`}
+                className={`overlay ${image.description ? "has-text" : ""
+                  }`}
               >
                 {image.description || "Hover to know more"}
               </div>
