@@ -47,10 +47,10 @@ const Dashboard = () => {
           <div className="background_image" />
           <div className="hero_content">
             <h1 className="line2">
-              <span className="bks_text">BKS</span>
+              <span className="bks_text">BKS-LAB</span>
             </h1>
             <h1 className="line3">BHARAT KNOWLEDGE SYSTEM</h1>
-            <h1 className="line1">Better digital experience</h1>
+            <h1 className="line1">Learning About Bharatvarsh</h1>
             <button
               className="summer_camp_btn"
               onClick={() => {
